@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyImage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='Images/SkyImage.png') }}" alt="Cloud Logo">
+            <h1>SkyImage</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#admin">Admin</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#logs">Logs</a></li>
+                <li><a href="#user-permission">User Permission</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Project Explorer -->
+        <div class="project-explorer">
+            <button onclick="addFolder()">Add Folder</button>
+            <input type="file" id="fileInput" multiple>
+            <div class="folders"></div>
+            <div class="folder-contents"></div> <!-- Added this container -->
+        </div>
+
+        <!-- Image Viewer -->
+        <div class="image-viewer">
+            <img id="image" src="" alt="Uploaded Image">
+            <div class="image-options">
+                <button onclick="applyFilter()">Filtering</button>
+                <button onclick="edgeDetection()">Edge Detection</button>
+                <button onclick="segmentation()">Segmentation</button>
+                <button onclick="featureExtraction()">Feature Extraction</button>
+                <button onclick="classification()">Classification</button>
+            </div>
+        </div>
+
+        <!-- Image Information -->
+        <div class="image-info">
+            <h3>Information</h3>
+            <p><strong>Material:</strong> <span id="material"></span></p>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+            <p><strong>Color:</strong> <span id="color"></span></p>
+            <div class="annotation-options">
+                <button onclick="annotate()">Annotate</button>
+                <button onclick="measure()">Measure</button>
+                <button onclick="tag()">Tag</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
