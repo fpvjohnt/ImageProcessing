@@ -36,6 +36,9 @@
             <input type="file" id="fileInput" multiple>
             <div class="folders"></div>
             <div class="folder-contents"></div> <!-- Added this container -->
+            <div>
+                <button id="filterButton">Apply Filter</button>
+            </div>
         </div>
 
         <!-- Image Viewer -->
@@ -65,6 +68,12 @@
     </main>
 
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script>
+        // Add an event listener to the filter button
+        document.getElementById("filterButton").addEventListener("click", function() {
+            applyFilter();
+        });
+    </script>
 </body>
 
 </html>

@@ -48,7 +48,7 @@ function addFolder() {
         .then(data => {
             if (data.success) {
                 alert('Folder created successfully');
-                refreshFolderList();
+                refreshFolderList(data.folders); // Update the folder list with the response folders
             } else {
                 alert('Error creating folder');
             }
@@ -120,5 +120,10 @@ function getFolderContents(folderPath) {
             const contentElement = document.createElement('div');
             contentElement.textContent = content.name;
             if (content.type === 'folder') {
-                contentElement.addEventListener('click', () => {
-                    selected
+                // Code specific to folders
+            }
+        });
+    });
+}
+
+// Add an event listener to the filter
